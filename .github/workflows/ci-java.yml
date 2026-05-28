@@ -17,5 +17,5 @@ jobs:
       - name: Compilar e Rodar
         run: |
           # Substitua 'Main.java' pelo nome do seu arquivo principal
-          javac Main.java
-          java Main
+          javac -d bin src/model/*.java src/app/*.java
+          java -cp bin app.Main
