@@ -1,7 +1,21 @@
-- name: Compilar Java
-  run: |
-    mkdir -p out
-    find . -name "*.java" -exec javac -d out {} +
+name: Executar Java
+on: [push] # Roda toda vez que você enviar código
 
-- name: Executar
-  run: java -cp out Main
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Baixar código do repositório
+        uses: actions/checkout@v4
+
+      - name: Configurar o JDK (Java 17)
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+
+      - name: Compilar e Rodar
+        run: |
+          # Substitua 'Main.java' pelo nome do seu arquivo principal
+          javac Main.java
+          java Main
