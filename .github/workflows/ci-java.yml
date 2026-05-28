@@ -1,0 +1,21 @@
+name: Executar Java
+on: [push] # Roda toda vez que você enviar código
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Baixar código do repositório
+        uses: actions/checkout@v4
+
+      - name: Configurar o JDK (Java 17)
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+
+      - name: Compilar e Rodar
+        run: |
+          # Substitua 'Main.java' pelo nome do seu arquivo principal
+          javac -d bin src/model/*.java src/app/*.java
+          java -cp bin app.Main
