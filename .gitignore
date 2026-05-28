@@ -1,0 +1,4 @@
+bin/app/Main.class
+bin/model/Biblioteca.class
+bin/model/Livro.class
+bin/model/Autor.class
