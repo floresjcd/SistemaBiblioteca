@@ -1,0 +1,7 @@
+- name: Compilar Java
+  run: |
+    mkdir -p out
+    find . -name "*.java" -exec javac -d out {} +
+
+- name: Executar
+  run: java -cp out Main
